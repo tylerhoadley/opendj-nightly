@@ -4,7 +4,7 @@ MAINTAINER des@drury-family.com
 
 WORKDIR /opt
 
-RUN curl http://107.23.37.34/repo/snapshots/org/forgerock/opendj/opendj3-server-dev/3.0.0-SNAPSHOT/opendj3-server-dev-3.0.0-20150211.174712-258.zip -o opendj.zip
+RUN curl http://maven.forgerock.org/repo/snapshots/org/forgerock/opendj/opendj3-server-dev/3.0.0-SNAPSHOT/opendj3-server-dev-3.0.0-20150211.174712-258.zip -o opendj.zip
 
 ADD k8sdc.ldif /opt/opendj/k8sdc.ldif
 
