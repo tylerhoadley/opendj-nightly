@@ -6,14 +6,14 @@ WORKDIR /opt
 
 RUN curl http://maven.forgerock.org/repo/snapshots/org/forgerock/opendj/opendj3-server-dev/3.0.0-SNAPSHOT/opendj3-server-dev-3.0.0-20150211.174712-258.zip -o opendj.zip
 
-
-ADD Example.ldif /opt/opendj/Example.ldif
+RUN mkdir -p /opt/opendj/
+ADD example.ldif /opt/opendj/example.ldif
 
 # Overwrite below enviroment varible when launching your containers via docker run
 
 ENV DJROOTPASSWD="changeme"                                               
 ENV DJBASEDN="dc=example,dc=com"
-ENV DJIMPORT="--ldifFile /opt/opendj/Example.Ldif"
+ENV DJIMPORT="--ldifFile /opt/opendj/example.ldif"
 
 
 RUN unzip opendj.zip && ./opendj/setup --cli -p 389 --ldapsPort 636 --enableStartTLS --generateSelfSignedCertificate \
