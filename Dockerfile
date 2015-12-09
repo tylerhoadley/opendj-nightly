@@ -13,6 +13,7 @@ RUN unzip opendj.zip && ./opendj/setup --cli -p 389 --ldapsPort 636 --enableStar
     && rm opendj.zip && /opt/opendj/bin/stop-ds
 
 ADD run.sh /opt/opendj/run.sh
+RUN  chmod 777 /opt/opendj/run.sh
 
 EXPOSE 389 636 4444
 
